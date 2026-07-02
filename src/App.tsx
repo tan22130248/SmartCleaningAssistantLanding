@@ -1,122 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { productData } from './data/product';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
+import { HeroSection } from './components/HeroSection';
+import { FeaturesSection } from './components/FeaturesSection';
+import { SpecsSection } from './components/SpecsSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
+import { FAQSection } from './components/FAQSection';
+import { RegisterForm } from './components/RegisterForm';
+import { ScrollTracker } from './components/ScrollTracker';
+import { lazy, Suspense } from 'react';
+const Chatbot = lazy(() => import('./components/Chatbot').then(m => ({ default: m.Chatbot })));
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
+      <Navbar />
+      <ScrollTracker />
+      
+      <HeroSection 
+        tagline={productData.tagline}
+        description={productData.description}
+      />
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {/* Trust Bar */}
+      <div className="bg-surface-container-low py-10 border-y border-outline-variant/10">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-10 flex flex-wrap justify-around items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+          <div className="flex items-center gap-2 font-bold text-2xl text-on-surface-variant"><span className="material-symbols-outlined text-3xl">award_star</span> CE CERTIFIED</div>
+          <div className="flex items-center gap-2 font-bold text-2xl text-on-surface-variant"><span className="material-symbols-outlined text-3xl">verified_user</span> ISO 9001</div>
+          <div className="flex items-center gap-2 font-bold text-2xl text-on-surface-variant"><span className="material-symbols-outlined text-3xl">precision_manufacturing</span> TECHREVIEW</div>
+          <div className="flex items-center gap-2 font-bold text-2xl text-on-surface-variant"><span className="material-symbols-outlined text-3xl">eco</span> GREEN LAB</div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+      </div>
+
+      <FeaturesSection features={productData.features} />
+      <SpecsSection specs={productData.specs} />
+      
+      {/* Process Section (static for now) */}
+      <section className="py-24">
+        <div className="max-w-[1280px] mx-auto px-4 md:px-10">
+          <div className="text-center mb-20 reveal">
+            <h2 className="font-display-lg text-headline-md md:text-display-lg text-on-background">Quy trình làm sạch khép kín</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+            <div className="hidden md:block absolute top-12 left-0 w-full h-[2px] bg-outline-variant/20 -z-10"></div>
+            {productData.process.map((step, i) => (
+              <div key={i} className="flex flex-col items-center text-center reveal">
+                <div className="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-background flex items-center justify-center mb-6 shadow-md">
+                  <span className="material-symbols-outlined text-primary text-3xl">{step.icon}</span>
+                </div>
+                <h4 className="font-bold mb-2">{step.title}</h4>
+                <p className="text-sm text-on-surface-variant px-4">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <TestimonialsSection testimonials={productData.testimonials} />
+      <FAQSection faqs={productData.faqs} />
+      <RegisterForm />
+      <Footer />
+      
+      <Suspense fallback={null}>
+        <Chatbot />
+      </Suspense>
+    </div>
+  );
 }
 
-export default App
+export default App;

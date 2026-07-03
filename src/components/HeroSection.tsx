@@ -1,4 +1,5 @@
 ﻿import { Icon } from './Icon';
+import heroImage from '../assets/hero.png';
 
 interface HeroProps {
   tagline: string;
@@ -30,11 +31,13 @@ export function HeroSection({ tagline, description }: HeroProps) {
         
         <div className="relative hero-visual">
           <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl"></div>
-            <div className="rounded-3xl overflow-hidden ambient-shadow border border-outline-variant/20 bg-gradient-to-br from-primary/10 via-surface-container to-secondary/10 aspect-[4/3] flex items-center justify-center">
-              <div className="text-center">
-                <Icon name="smart_toy" className="mx-auto text-primary/80" size={120} strokeWidth={1.5} />
-                <p className="mt-2 text-on-surface-variant font-semibold">CleanBot AI</p>
-              </div>
+            <div className="rounded-3xl overflow-hidden ambient-shadow border border-outline-variant/20">
+              <img 
+                src={heroImage} 
+                alt="Robot hút bụi CleanBot AI trong phòng khách hiện đại" 
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
             </div>
         </div>
       </div>

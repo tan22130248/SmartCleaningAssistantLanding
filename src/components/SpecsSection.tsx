@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Icon } from './Icon';
+import screenImage from '../assets/screen.png';
 
 interface Spec {
   icon: string;
@@ -52,23 +53,23 @@ export function SpecsSection({ specs }: Props) {
                   <Icon name={spec.icon} className="text-primary" size={22} /> 
                   {spec.label}
                 </span>
-                <span className="font-bold text-on-background">{spec.value}</span>
+                <span className="font-bold text-on-background dark:text-[#e2e8f0]">{spec.value}</span>
               </div>
             ))}
           </div>
           
-          {/* <div className="relative">
-            <div className="rounded-3xl overflow-hidden ambient-shadow rotate-3 hover:rotate-0 transition-transform">
+          <div className="relative">
+            <div className="rounded-3xl overflow-hidden ambient-shadow bg-surface-container p-8">
               <img 
-                className="w-full object-cover" 
-                alt="Cấu tạo robot" 
-                src="https://picsum.photos/id/106/800/600" 
+                src={screenImage}
+                className="w-full object-contain" 
+                alt="Cấu tạo chi tiết robot hút bụi CleanBot AI" 
                 width="600"
                 height="450"
                 loading="lazy"
               />
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>

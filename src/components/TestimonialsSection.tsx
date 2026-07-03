@@ -20,7 +20,7 @@ export function TestimonialsSection({ testimonials }: Props) {
           {testimonials.map((t, i) => (
             <div 
               key={i}
-              className="p-8 rounded-2xl bg-background border border-outline-variant/10 ambient-shadow"
+              className="p-8 rounded-2xl bg-background dark:bg-[#1e293b] border border-outline-variant/10 ambient-shadow"
             >
               <div className="flex gap-1 mb-4 text-primary">
                 {Array(t.rating).fill(0).map((_, j) => (

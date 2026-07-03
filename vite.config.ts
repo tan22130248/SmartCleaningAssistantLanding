@@ -9,6 +9,13 @@ export default defineConfig({
     target: 'es2020',
     cssCodeSplit: true,
     reportCompressedSize: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

@@ -14,7 +14,7 @@ const Chatbot = lazy(() => import('./components/Chatbot').then(m => ({ default: 
 
 function App() {
   return (
-    <div className="bg-background dark:bg-[#0f172a] text-on-surface dark:text-[#e2e8f0] font-body-md overflow-x-hidden">
+    <div className="font-body-md overflow-x-hidden min-h-screen">
       <Navbar />
       <ScrollTracker />
       

@@ -1,10 +1,12 @@
+import { Icon } from './Icon';
+
 export function Footer() {
   return (
     <footer className="bg-surface-container-lowest border-t border-outline-variant/20">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center px-4 md:px-10 py-20 max-w-[1280px] mx-auto w-full gap-8">
         <div className="flex flex-col gap-4">
           <div className="font-display-lg-mobile text-display-lg-mobile font-bold text-primary flex items-center gap-2">
-            <span className="material-symbols-outlined text-3xl">smart_toy</span>
+            <Icon name="smart_toy" size={30} strokeWidth={1.75} />
             <span>CleanBot AI</span>
           </div>
           <p className="text-on-surface-variant max-w-xs">Mang đến sự sạch sẽ tuyệt đối cho ngôi nhà Việt bằng trí tuệ nhân tạo.</p>
@@ -26,9 +28,9 @@ export function Footer() {
       <div className="max-w-[1280px] mx-auto px-4 md:px-10 py-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-sm">
         <span>© 2024 CleanBot AI. All rights reserved.</span>
         <div className="flex gap-6">
-          <span className="material-symbols-outlined cursor-pointer hover:text-primary">face_nod</span>
-          <span className="material-symbols-outlined cursor-pointer hover:text-primary">smart_display</span>
-          <span className="material-symbols-outlined cursor-pointer hover:text-primary">alternate_email</span>
+          <Icon name="face_nod" className="cursor-pointer hover:text-primary" size={24} />
+          <Icon name="smart_display" className="cursor-pointer hover:text-primary" size={24} />
+          <Icon name="alternate_email" className="cursor-pointer hover:text-primary" size={24} />
         </div>
       </div>
     </footer>

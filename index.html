@@ -7,6 +7,30 @@
     <title>CleanBot AI - Dọn Dẹp Thông Minh, Sống Thảnh Thơi</title>
     <meta name="description" content="CleanBot AI — Robot hút bụi AI thế hệ mới. Tự động lập bản đồ, tránh vật cản và tự đổ rác. Không gian sạch thảnh thơi." />
     
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
+    
+    <!-- Preload SVG sprite -->
+    <link rel="preload" href="/icons.svg" as="image" type="image/svg+xml" />
+    
+    <!-- Inline critical font declaration to avoid FOIT/FOUT -->
+    <style>
+      html { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      body { margin: 0; }
+    </style>
+
+    <!-- Inline theme script to prevent FOUC -->
+    <script>
+      (function(){
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="CleanBot AI - Dọn Dẹp Thông Minh, Sống Thảnh Thơi" />
@@ -19,13 +43,6 @@
     <meta name="twitter:description" content="Robot hút bụi AI tự động lập bản đồ, tránh vật cản và tự đổ rác." />
     <meta name="twitter:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuCIaoeCY0VLUaWQVC3wZTlHzgdQgHBsJjImEIVb9VuWa8IEOwgS6Y9tdkn8RLzfEKzdVdpRTeH4btd8ctcs7dCln5KEID7mxvbUZA1I_58MQElM6eksMG5P0ybvAgnm1Qv-IMRu0n61MUCz4RLrUe--6hldAiPDtoCFNBBqAzv4ofHyZsA_pBaBpUBoCCrkc8WXgL15BvMl2SrDxbbZsrktLyUJvIoCRuHo__MtG8p0j5xIiaPC4PWQioZlVtWJVo63mpKg4FTXNOw" />
     
-    <!-- Preload fonts with font-display swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-    
-
   </head>
   <body>
     <div id="root"></div>

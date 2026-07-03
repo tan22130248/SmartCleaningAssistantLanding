@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { Icon } from './Icon';
 
 interface Feature {
   icon: string;
@@ -20,20 +20,16 @@ export function FeaturesSection({ features }: Props) {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
-            <motion.div 
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              viewport={{ once: true }}
               className="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 ambient-shadow group hover:border-primary/30 transition-all"
             >
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                <span className="material-symbols-outlined text-3xl">{f.icon}</span>
+                <Icon name={f.icon} size={32} />
               </div>
               <h3 className="font-title-lg text-title-lg mb-3">{f.title}</h3>
               <p className="text-on-surface-variant leading-relaxed">{f.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

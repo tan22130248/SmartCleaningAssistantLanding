@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon } from './Icon';
 
 interface Spec {
   icon: string;
@@ -48,7 +49,7 @@ export function SpecsSection({ specs }: Props) {
             {currentSpecs.map((spec, i) => (
               <div key={i} className="flex items-center justify-between py-4 border-b border-outline-variant/20">
                 <span className="text-on-surface-variant flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">{spec.icon}</span> 
+                  <Icon name={spec.icon} className="text-primary" size={22} /> 
                   {spec.label}
                 </span>
                 <span className="font-bold text-on-background">{spec.value}</span>
@@ -56,18 +57,18 @@ export function SpecsSection({ specs }: Props) {
             ))}
           </div>
           
-          <div className="relative">
+          {/* <div className="relative">
             <div className="rounded-3xl overflow-hidden ambient-shadow rotate-3 hover:rotate-0 transition-transform">
               <img 
                 className="w-full object-cover" 
                 alt="Cấu tạo robot" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7voTgNQcJEmqN3DX_UXj3ZjZrV6uJkgTs8OPve3qgUSCRk3unqSZepYMPrRwjLgiSHYfF-3IgrUE_VddNU1JRxWdcowWM648FAG815QMXe3eddktBdBVd_rGBNvqTQtw9fifvGTGq95BTc7ggq_0maIvlXs5vJe2AjAbAM4pq8o7kugpPI17N7-_kewM6eOcGnG7kuBnP_vAw59QxvEIGRCtXVz8zr6FMQASxe0AzGAlv_kO785DozLSMM3ua9sT2BZsxM_d4yGg" 
+                src="https://picsum.photos/id/106/800/600" 
                 width="600"
                 height="450"
                 loading="lazy"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

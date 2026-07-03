@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon } from './Icon';
 
 const faqAnswers: Record<string, string> = {
   'bảo hành': 'Sản phẩm được bảo hành 24 tháng cho thân máy và 12 tháng cho pin.',
@@ -38,7 +39,7 @@ export function Chatbot() {
         onClick={() => setOpen(!open)}
         className="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-[80] hover:scale-110 transition-all"
       >
-        <span className="material-symbols-outlined text-3xl">chat_bubble</span>
+        <Icon name="chat_bubble" size={30} />
       </button>
 
       {open && (

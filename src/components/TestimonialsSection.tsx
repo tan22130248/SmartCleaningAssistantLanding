@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { Icon } from './Icon';
 
 interface Testimonial {
   name: string;
@@ -18,16 +18,13 @@ export function TestimonialsSection({ testimonials }: Props) {
         <h2 className="font-display-lg text-headline-md md:text-display-lg text-center mb-16">Khách hàng nói gì?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <motion.div 
+            <div 
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
               className="p-8 rounded-2xl bg-background border border-outline-variant/10 ambient-shadow"
             >
               <div className="flex gap-1 mb-4 text-primary">
                 {Array(t.rating).fill(0).map((_, j) => (
-                  <span key={j} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                  <Icon key={j} name="star" size={20} fill="currentColor" />
                 ))}
               </div>
               <p className="italic text-on-surface-variant mb-8">"{t.quote}"</p>
@@ -40,7 +37,7 @@ export function TestimonialsSection({ testimonials }: Props) {
                   <span className="text-xs text-on-surface-variant">{t.location}</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

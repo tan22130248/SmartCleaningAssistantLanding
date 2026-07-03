@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon } from './Icon';
 
 interface FAQ {
   question: string;
@@ -28,7 +29,7 @@ export function FAQSection({ faqs }: Props) {
                 className="w-full py-6 flex justify-between items-center text-left hover:text-primary transition-colors group"
               >
                 <span className="font-bold">{faq.question}</span>
-                <span className="material-symbols-outlined">{openIndex === index ? 'remove' : 'add'}</span>
+                <Icon name={openIndex === index ? 'remove' : 'add'} size={22} />
               </button>
               {openIndex === index && (
                 <div className="pb-6 text-on-surface-variant leading-relaxed">{faq.answer}</div>
